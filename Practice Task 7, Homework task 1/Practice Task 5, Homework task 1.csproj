@@ -9,4 +9,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="SemaforeRandomNumberRunner">
+      <HintPath>..\..\..\SemaforeDDL\SemaforeRandomNumberRunner\bin\Debug\net8.0\SemaforeRandomNumberRunner.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

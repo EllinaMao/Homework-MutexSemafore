@@ -1,31 +1,39 @@
-﻿namespace Practice_Task_7__Homework_task_1
+﻿using SemaphoreRandomNumberRunner;
+
+namespace Practice_Task_7__Homework_task_1
 {
 
     public partial class Form1 : Form
     {
-        static SemaphoreSlim slim = new SemaphoreSlim(3, 3);//3 максимальное количество потоков
-        static Random rd = new Random();
+        private RunSemaphore? runner;
+
         public Form1()
         {
             InitializeComponent();
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            foreach(var list in flowLayoutPanel1.Controls)
-            {
-                var thread = new Thread(DoWork);
-                //thread.Name = $"Поток {flowLayoutPanel1.Controls.}";
-                thread.Start();
+            runner = new RunSemaphore(LogMessage, 3, 3); // максимум 3 потока одновременно
+            Task[] tasks = runner.Run(10); // 10 потоков
 
-            }
-            DoWork();
+            Task.WhenAll(tasks).ContinueWith(_ =>
+            {
+                MessageBox.Show("Все потоки завершили работу!");
+            });
         }
 
-        private void DoWork()
+
+        private void LogMessage(string message)
         {
-            
+            if (InvokeRequired)
+            {
+                Invoke(new Action<string>(LogMessage), message);
+                return;
+            }
+            textBox1.AppendText(message + Environment.NewLine);
         }
     }
 }
+

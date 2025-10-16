@@ -1,4 +1,4 @@
-namespace Practice_Task_7__Homework_task_1
+﻿namespace Practice_Task_7__Homework_task_1
 {
     internal static class Program
     {
@@ -8,6 +8,7 @@ namespace Practice_Task_7__Homework_task_1
         [STAThread]
         static void Main()
         {
+            
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();

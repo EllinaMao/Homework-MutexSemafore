@@ -2,35 +2,51 @@
 {
     public partial class Form1 : Form
     {
-        SynchronizationContext? uicontext;
+        private Mutex mutex = new Mutex();
+
         public Form1()
         {
             InitializeComponent();
-            uicontext = SynchronizationContext.Current;
         }
 
         private void startBtn_Click(object sender, EventArgs e)
         {
-            uicontext.Send(d => label1.Text = "Start Generation", null);
+
+            textBox1.Clear();
+            textBox2.Clear();
+
+            // Запускаем два потока через Task
+            Task.Run(() => ShowAscending())
+                 .ContinueWith(t => ShowDescending(), TaskScheduler.FromCurrentSynchronizationContext());
 
         }
-        void LoadFile(string path)
+        private void ShowAscending(int min = 0, int max = 20)
         {
-            string pathfile;
-            using var dialog = new OpenFileDialog
+            mutex.WaitOne(); // первый поток захватывает первый мьютекс
+            for (int i = min; i <= max; i++)
             {
-                Filter = "JSON files (*.json)|*.json",
-                Multiselect = true
-            };
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                pathfile = dialog.FileName;
-                FileStream file = new FileStream(pathfile, FileMode.Create, FileAccess.Write);
-                BinaryWriter bw = new BinaryWriter(file);
-                int range = rnd.Next
+                Invoke(new Action(() =>
+                {
+                    textBox1.AppendText($"{i} ");
+                }));
+                Thread.Sleep(100);
             }
+            mutex.ReleaseMutex();
+        }
 
-           
+        private void ShowDescending(int min = 0, int max = 10)
+        {
+            mutex.WaitOne();
+            for (int i = max; i >= min; i--)
+            {
+                Invoke(new Action(() =>
+                {
+                    textBox2.AppendText($"{i} ");
+                }));
+                Thread.Sleep(100);
+
+            }
+            mutex.ReleaseMutex();
 
         }
 
