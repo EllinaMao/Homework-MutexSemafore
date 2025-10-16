@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice Task 5, Homework task 1", "Practice Task 7, Homework task 1\Practice Task 5, Homework task 1.csproj", "{1D24371C-D6A5-477D-9DB2-58EBF9CA5F5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HwTask2Practice6", "HwTask2Practice6\HwTask2Practice6.csproj", "{53EE27B2-62E6-4043-B99C-0B020B5C2741}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D24371C-D6A5-477D-9DB2-58EBF9CA5F5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D24371C-D6A5-477D-9DB2-58EBF9CA5F5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D24371C-D6A5-477D-9DB2-58EBF9CA5F5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D24371C-D6A5-477D-9DB2-58EBF9CA5F5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53EE27B2-62E6-4043-B99C-0B020B5C2741}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53EE27B2-62E6-4043-B99C-0B020B5C2741}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53EE27B2-62E6-4043-B99C-0B020B5C2741}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53EE27B2-62E6-4043-B99C-0B020B5C2741}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {378ADA30-1142-4450-91B9-C3A9A1857D25}
+	EndGlobalSection
+EndGlobal
